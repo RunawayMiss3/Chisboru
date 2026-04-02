@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mensaje Oculto</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(black, #1a001f);
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+}
+
+.caja {
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  border-radius: 15px;
+  width: 360px;
+  margin: auto;
+  box-shadow: 0 0 20px #b300ff;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #b300ff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+.oculto {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caja">
+
+<h2>📩 Mensaje no autorizado</h2>
+<p>Este archivo… no era para ti.</p>
+
+<button onclick="inicio()">Leer de todos modos</button>
+
+<!-- NIVEL 1 -->
+<div id="n1" class="oculto">
+  <p>Primero dime…</p>
+  <p>¿Cuánto es 9 + 1?</p>
+  <input id="r1">
+  <br>
+  <button onclick="check1()">Continuar</button>
+</div>
+
+<!-- NIVEL 2 -->
+<div id="n2" class="oculto">
+  <p>Ok… entraste 😏</p>
+  <p>Pista:</p>
+  <p>"No soy fuego… pero quemo cuando miras"</p>
+  <input id="r2">
+  <br>
+  <button onclick="check2()">Responder</button>
+</div>
+
+<!-- NIVEL 3 -->
+<div id="n3" class="oculto">
+  <p>Ya casi…</p>
+  <p>Elige cómo seguir:</p>
+  <button onclick="caminoA()">Seguir reglas</button>
+  <button onclick="caminoB()">Romper reglas</button>
+</div>
+
+<!-- CAMINO A -->
+<div id="a" class="oculto">
+  <p>Hmm… obediente 👀</p>
+  <p>Última prueba:</p>
+  <p>Escribe: "no debería estar aquí"</p>
+  <input id="r3">
+  <br>
+  <button onclick="check3()">Confirmar</button>
+</div>
+
+<!-- CAMINO B -->
+<div id="b" class="oculto">
+  <p>Sabía que eras de ese tipo 😏</p>
+  <p>Pista final:</p>
+  <p>Empieza con "p" y termina con "o"</p>
+  <input id="r4">
+  <br>
+  <button onclick="check4()">Entrar</button>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="oculto">
+  <p>…</p>
+  <p>Al final sí entraste.</p>
+  <p>Y no sé si debería dejarte leer esto.</p>
+  <br>
+  <p>Pero bueno…</p>
+  <p>tampoco eres de los que obedecen mucho.</p>
+  <br>
+  <p>Y eso… me gusta.</p>
+  <br>
+  <p>🎧 “No fue casualidad”</p>
+  <p>Solo diré eso.</p>
+</div>
+
+</div>
+
+<script>
+
+function inicio(){
+  document.getElementById("n1").style.display = "block";
+}
+
+function check1(){
+  let r = document.getElementById("r1").value;
+  if(r == "10"){
+    document.getElementById("n2").style.display = "block";
+  } else {
+    alert("No te hagas...");
+  }
+}
+
+function check2(){
+  let r = document.getElementById("r2").value.toLowerCase();
+  if(r.includes("mirada") || r.includes("ojos")){
+    document.getElementById("n3").style.display = "block";
+  } else {
+    alert("Piénsalo mejor...");
+  }
+}
+
+function caminoA(){
+  document.getElementById("a").style.display = "block";
+}
+
+function caminoB(){
+  document.getElementById("b").style.display = "block";
+}
+
+function check3(){
+  let r = document.getElementById("r3").value.toLowerCase();
+  if(r == "no debería estar aquí"){
+    document.getElementById("final").style.display = "block";
+  } else {
+    alert("Exacto... así debía ser.");
+  }
+}
+
+function check4(){
+  let r = document.getElementById("r4").value.toLowerCase();
+  if(r == "peligro"){
+    document.getElementById("final").style.display = "block";
+  } else {
+    alert("Sabes que no es esa...");
+  }
+}
+
+</script>
+
+</body>
+</html>
